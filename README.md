@@ -26,6 +26,17 @@ This is a summary of the main tasks you need to complete.
 
 ---
 
+Git Terminology Definitions:
+Repository(aka Repo) - is the central location for all your project files and complete history of changes
+Commit - is a snapshot of your repo at a specific point in time. Commit early and commit often
+Branch - is a separate line for a repo so you can work on things without affecting the main.
+Main/Master - this is the primary branch in a repo.
+Staging area - place to prepare changes before you commit them using the "git add ."
+Clone - is a local copy of a repo on your computer
+Merge - is a combining of 2 branches together. Often leads to merge conflicts....
+Push - is an upload of local commits to the repo
+Pull - is a download of changes from a remote repo into your local branch
+
 ## Hints for the Bug Hunt
 
 Look for common errors across all files. There are issues with syntax, logic, and best practices.
@@ -43,7 +54,6 @@ Look for common errors across all files. There are issues with syntax, logic, an
   - Verify that the IDs used in `getElementById()` match the IDs in your `index.html` file exactly.
 
 ---
-
 
 ## Learning Objectives
 
