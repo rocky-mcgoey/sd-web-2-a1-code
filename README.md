@@ -34,7 +34,7 @@ Main/Master - this is the primary branch in a repo.
 Staging area - place to prepare changes before you commit them using the "git add ."
 Clone - is a local copy of a repo on your computer
 Merge - is a combining of 2 branches together. Often leads to merge conflicts....
-Push - is an upload of local commits to the repo
+Push - is an upload of local commits to the repo. Only supposed to do this once really i guess, oops.
 Pull - is a download of changes from a remote repo into your local branch
 
 ## Hints for the Bug Hunt
