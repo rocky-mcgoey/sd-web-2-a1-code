@@ -16,6 +16,19 @@ const users = [
 
 // broken test data for exercise 6
 
+const brokenUsers = [
+  { id: 1, name: "Count Dooku", age: 83 },
+  { id: 2, age: 45 }, 
+  { id: 3, name: "Jabba the Hutt", age: 604 },
+  { id: 4, name: "Darth Maul", age: 22 },
+  {id: 5, age: 900 },
+  { id: 6, name: "Mace Windu", age: 53 },
+  { id: 7, name: "Qui-Gon Jinn", age: 60 },
+  { id: 8, age: 33 },
+  { id: 9, name: "Lando Calrissian", age: 34 },
+  { id: 5, age: 129 },
+];
+
 // 1. Print out the names of each character in the console, then render them in the HTML list with id "names-list"
 
 for (let i = 0; i < users.length; i++) {
@@ -97,4 +110,29 @@ ageListMapRenderer(users, 33, "age-filter-list");
 
 // 5. Add error handling to your functions that will log an error message using console.error() if any object doesn't have a "name" property. Display any error messages in the div with id "error-messages"
 
+function nameListRendererWithErrorHandling(array, listId, errorDivId) {
+  const list = document.getElementById(listId);
+  const errorDiv = document.getElementById(errorDivId);
+  list.innerHTML = "";  // Clears content
+  errorDiv.innerHTML = ""; // Clears errors
+
+  array.forEach((item, index) => {
+    if (item.name) {
+      const listItem = document.createElement("li");
+      listItem.textContent = item.name;
+      list.append(listItem);
+    } else {
+      const errorMessage = `Error: "name" property for item at index ${index} is missing.`;
+      console.error(errorMessage);
+
+      const errorItem = document.createElement("p");
+      errorItem.textContent = errorMessage;
+      errorDiv.append(errorItem);
+    }
+  });
+}
+nameListRendererWithErrorHandling(users, "error-handling-list", "broken-array-errors");
+
 // 6. Test your error handling by creating a second array that's intentionally broken (missing name properties) and passing it to your functions. Verify that your error handling works correctly and displays errors in the div with id "broken-array-errors"
+
+nameListRendererWithErrorHandling(brokenUsers, "broken-array-list", "broken-array-errors");
