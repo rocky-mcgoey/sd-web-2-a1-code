@@ -47,7 +47,7 @@ users.forEach((user) => {
 
 function nameListRenderer(array, listId) {
   const list = document.getElementById(listId);
-  list.innerHTML = "";
+  list.innerHTML = ""; // will clear any content already here
 
   array.forEach((item) => {
     if (item.name) {
@@ -60,6 +60,40 @@ function nameListRenderer(array, listId) {
 
 nameListRenderer(users, "function-list");
 // 4. Create a function that takes an array and an age threshold parameter. The function should only display characters whose age is below the given number. Render results in the list with id "age-filter-list"
+
+// function ageListRenderer(array, ageThreshold, listId) {
+//   const list = document.getElementById(listId);
+//   list.innerHTML = ""; // will clear any content already here
+
+//   array.forEach((item) => {
+//     if (item.age < ageThreshold && item.name) {
+//       const listItem = document.createElement("li");
+//       listItem.textContent = item.name;
+//       list.append(listItem);
+//     }
+//   });
+
+// }
+
+// ageListRenderer(users, 33, "age-filter-list");
+
+// using a map and filter approach
+function ageListMapRenderer(array, ageThreshold, listId) {
+  const list = document.getElementById(listId);
+  list.innerHTML = ""; // will clear any content already here
+
+  const filteredOnes = array.filter(item => item.age < ageThreshold && item.name);
+
+  const liElements = filteredOnes.map(item => {
+    const listItem = document.createElement("li");
+    listItem.textContent = item.name;
+    return listItem;
+  });
+
+  liElements.forEach(listItem => list.append(listItem));
+}
+
+ageListMapRenderer(users, 33, "age-filter-list");
 
 // 5. Add error handling to your functions that will log an error message using console.error() if any object doesn't have a "name" property. Display any error messages in the div with id "error-messages"
 
